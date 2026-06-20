@@ -1,0 +1,77 @@
+.loginPageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $bg-primary;
+    font-family: sans-serif;
+
+    .loginCard {
+        padding: 2rem;
+        background-color: $bg-card;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+
+        h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .errorMessage {
+            color: $text-error;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .formGroup {
+            margin-bottom: 1rem;
+
+            &.passwordGroup {
+                margin-bottom: 1.5rem;
+            }
+
+            label {
+                display: block;
+                margin-bottom: 0.5rem;
+                font-size: 14px;
+            }
+
+            input {
+                width: 100%;
+                padding: 0.5rem;
+                border-radius: 4px;
+                border: 1px solid $border-color;
+                box-sizing: border-box;
+
+                &:disabled {
+                    background-color: color-mix(in srgb, $bg-primary, #fff 2%);
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        .submitButton {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: $brand-color;
+            color: #fff;
+            border: none;
+            border-radius: 4px; 
+            cursor: pointer;
+            font-size: 16px; 
+            transition: background-color 0.2s ease;
+
+            &:disabled {
+                background-color: $brand-disabled; 
+                cursor: not-allowed;
+            }
+
+            &:not(:disabled):hover {
+                background-color: color-mix(in srgb, $brand-color, #000 5%);
+            }
+        }
+    }
+}
