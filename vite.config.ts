@@ -19,5 +19,11 @@ export default defineConfig({
     server: {
         port: 5174,
         strictPort: true, // Избежит автоматического переключения на 5175, если 5174 занят
+        proxy: {
+            '/storage': {
+                target: 'http://localhost:8080',
+                changeOrigin: true,
+            }
+        }
     },
 });
