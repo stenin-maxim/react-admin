@@ -1,0 +1,155 @@
+.usersContainer {
+    h1 {
+        margin-bottom: 1.5rem;
+        font-size: 24px;
+        color: #1e293b;
+    }
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto; 
+    background-color: $bg-card;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid $border-color;
+}
+
+.usersTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+
+    th, td {
+        padding: 12px 16px;
+        border-bottom: 1px solid $border-color;
+        white-space: nowrap; 
+    }
+
+    th {
+        background-color: $bg-primary;
+        color: $text-muted;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+    }
+
+    tr:hover {
+        background-color: color-mix(in srgb, $bg-primary, #fff 50%);
+    }
+}
+
+/* Стили для ULID */
+.ulidCell {
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $text-light;
+    font-family: monospace;
+}
+
+/* Стили для бейджей */
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &.verified {
+        background-color: #dcfce7;
+        color: #15803d;
+    }
+
+    &.notVerified {
+        background-color: #fee2e2;
+        color: #b91c1c;
+    }
+
+    &.role {
+        background-color: color-mix(in srgb, $brand-color, #fff 90%);
+        color: $brand-color;
+        margin-right: 4px;
+    }
+}
+
+/* Аватар пользователя */
+.avatarImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; 
+}
+
+.avatarPlaceholder {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Скрытый политиками текст */
+.hiddenCell {
+    color: $text-light;
+    font-style: italic;
+}
+
+/* Блок пагинации */
+.paginationWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+    font-size: 14px;
+    color: $text-muted;
+
+    .paginationInfo {
+        span {
+            font-weight: 600;
+            color: #1e293b;
+        }
+    }
+
+    .paginationButtons {
+        display: flex;
+        gap: 8px;
+
+        .pageButton {
+            padding: 6px 12px;
+            border: 1px solid $border-color;
+            background-color: $bg-card;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &:hover:not(:disabled) {
+                background-color: $bg-primary;
+                border-color: color-mix(in srgb, $border-color, #000 20%);
+            }
+
+            &:disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+            }
+
+            &.activePage {
+                background-color: $brand-color !important;
+                color: #fff !important;
+                border-color: $brand-color !important;
+                font-weight: bold;
+                cursor: default;
+            }
+        }
+    }
+}
