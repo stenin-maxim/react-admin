@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { authApi } from './authApi';
 
 interface AuthState {
@@ -21,17 +21,6 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState,
     reducers: {
-        setCredentials: (
-            state,
-            action: PayloadAction<{ token: string; user: AuthState['user'] }>
-        ) => {
-            state.token = action.payload.token;
-            state.user = action.payload.user;
-            
-            // Сохраняем в браузере, чтобы сессия не сбрасывалась при перезагрузке страницы
-            localStorage.setItem('token', action.payload.token);
-            localStorage.setItem('user', JSON.stringify(action.payload.user));
-        },
         logout: (state) => {
             state.token = null;
             state.user = null;
@@ -55,5 +44,5 @@ export const authSlice = createSlice({
     },
 });
 
-export const { setCredentials, logout } = authSlice.actions;
+export const { logout } = authSlice.actions;
 export default authSlice.reducer;
