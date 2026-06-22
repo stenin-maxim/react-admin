@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 import { RootState } from '@/app/store';
 import { logout } from '@/features/auth/authSlice';
+import { Sidebar } from './components/Sidebar';
 import styles from './AdminLayout.module.scss';
 
 export const AdminLayout = () => {
@@ -13,20 +14,22 @@ export const AdminLayout = () => {
     }
 
     return (
-        <div className={styles.appLayout}>
-            <header className={styles.appHeader}>
-                <h2>Панель управления (Админка)</h2>
-                <div className={styles.userInfo}>
-                    <span>Вы вошли как: <b>{user?.name}</b></span>
-                    <button className={styles.logoutButton} onClick={() => dispatch(logout())}>
-                        Выйти
-                    </button>
-                </div>
-            </header>
+        <div className={styles.adminDashboard}>
+            <Sidebar />
+            <div className={styles.mainContent}>
+                <header className={styles.appHeader}>
+                    <div className={styles.userInfo}>
+                        <span>Вы вошли как: <b>{user?.name}</b></span>
+                        <button className={styles.logoutButton} onClick={() => dispatch(logout())}>
+                            Выйти
+                        </button>
+                    </div>
+                </header>
 
-            <main>
-                <Outlet />
-            </main>
+                <main className={styles.pageBody}>
+                    <Outlet />
+                </main>
+            </div>
         </div>
     );
 };

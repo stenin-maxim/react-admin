@@ -1,40 +1,132 @@
-.appLayout {
-    padding: 20px;
+.adminDashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: $bg-primary;
     font-family: sans-serif;
+}
 
-    .appHeader {
+/* Стили Бокового Меню */
+.sidebar {
+    width: 260px;
+    background-color: #1e293b;
+    color: #f8fafc;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+
+    .logo {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        padding-left: 0.5rem;
+        color: #fff;
+    }
+
+    .menu {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        gap: 8px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menuLink {
+        display: block;
+        padding: 10px 14px;
+        color: #94a3b8;
+        text-decoration: none;
+        border-radius: 6px;
+        font-size: 15px;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #334155;
+            color: #fff;
+        }
+
+        /* Класс, автоматически добавляемый react-router-dom для активной ссылки */
+        &.activeLink {
+            background-color: $brand-color;
+            color: #fff;
+            font-weight: 500;
+        }
+    }
+}
+
+/* Стили Правой Рабочей Области */
+.mainContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.appHeader {
+    height: 70px;
+    background-color: $bg-card;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 2rem;
+
+    .userInfo {
+        display: flex;
         align-items: center;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid $border-color;
+        gap: 15px;
+        font-size: 14px;
 
-        h2 {
-            margin: 0;
+        b {
+            color: $brand-color;
         }
+    }
 
-        .userInfo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+    .logoutButton {
+        padding: 6px 12px;
+        cursor: pointer;
+        border: 1px solid $border-color;
+        border-radius: 4px;
+        background-color: $bg-card;
+        font-size: 13px;
+        transition: background-color 0.2s;
 
-            b {
-                color: $brand-color;
-            }
+        &:hover {
+            background-color: $bg-primary;
         }
+    }
+}
 
-        .logoutButton {
-            padding: 6px 12px;
-            cursor: pointer;
-            border: 1px solid $border-color;
-            border-radius: 4px;
-            background-color: $bg-card;
-            transition: background-color 0.2s;
+/* Контейнер страниц внутри Outlet */
+.pageBody {
+    padding: 2rem;
+    flex: 1;
+    overflow-y: auto;
+}
 
-            &:hover {
-                background-color: $bg-primary;
-            }
-        }
+.menuLink {
+    display: block;
+    padding: 10px 14px;
+    color: #94a3b8;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: all 0.2s ease;
+
+    .linkContent {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &:hover {
+        background-color: #334155;
+        color: #fff;
+    }
+
+    &.activeLink {
+        background-color: $brand-color;
+        color: #fff;
+        font-weight: 500;
     }
 }
