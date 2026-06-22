@@ -4,12 +4,15 @@ import { RootState } from '@/app/store';
 export interface DashboardStats {
     status: string;
     data: {
+        users_online: number;
         users_total: number;
         users_new_today: number;
+        user_unverified_count: number;
+        products_pending: number;
         products_active: number;
-        products_moderation: number;
-        support_pending: number;
-        users_online: number;
+        products_inactive: number;
+        support_new_tickets: number;
+        support_in_progress: number;
         messages_today_count: number;
         redis_cached_at: string;
     };
