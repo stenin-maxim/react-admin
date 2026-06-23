@@ -1,0 +1,155 @@
+.productsContainer {
+    h1 {
+        margin-bottom: 1.5rem;
+        font-size: 24px;
+        color: #1e293b;
+        transition: opacity 0.2s ease;
+
+        &.isFetching {
+            opacity: 0.6;
+        }
+    }
+}
+
+.tableWrapper {
+    width: 100%;
+    overflow-x: auto;
+    background-color: $bg-card;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid $border-color;
+    transition: opacity 0.2s ease;
+
+    &.isFetchingTable {
+        opacity: 0.8;
+    }
+}
+
+.productsTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+
+    th, td {
+        padding: 12px 16px;
+        border-bottom: 1px solid $border-color;
+        white-space: nowrap;
+    }
+
+    th {
+        background-color: $bg-primary;
+        color: $text-muted;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    tr:hover {
+        background-color: color-mix(in srgb, $bg-primary, #fff 50%);
+    }
+}
+
+/* Оформление служебных ячеек */
+.ulidCell {
+    font-family: monospace;
+    color: $text-light;
+}
+
+.priceCell {
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.nameCell {
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Бейджи статусов */
+.statusBadge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &.active { background-color: #dcfce7; color: #15803d; }
+    &.pending { background-color: #fef9c3; color: #a16207; }
+    &.inactive { background-color: #f1f5f9; color: #475569; }
+}
+
+.ownerInfo {
+    font-size: 13px;
+    color: #1e293b;
+}
+
+/* Ошибка удаления */
+.deletedUser {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.productImg {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    object-fit: cover;
+    display: block;
+}
+
+.productImgPlaceholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 6px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+}
+
+.searchWrapper {
+    margin-bottom: 1.5rem;
+    max-width: 400px;
+    .searchInput {
+        width: 100%;
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: 1px solid $border-color;
+        font-size: 14px;
+        outline: none;
+        &:focus { border-color: $brand-color; }
+    }
+}
+
+.paginationWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 0 0.5rem;
+    font-size: 14px;
+    color: $text-muted;
+
+    .buttonsBlock {
+        display: flex;
+        gap: 6px;
+    }
+
+    .pageButton {
+        padding: 6px 12px;
+        border: 1px solid $border-color;
+        background-color: $bg-card;
+        border-radius: 4px;
+        cursor: pointer;
+        &:disabled { opacity: 0.5; cursor: not-allowed; }
+        &.activePage {
+            background-color: $brand-color !important;
+            color: #fff !important;
+            border-color: $brand-color !important;
+        }
+    }
+}

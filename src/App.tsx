@@ -5,6 +5,7 @@ import { AdminLayout } from '@/layouts/AdminLayout';
 import { LoginPage } from '@/pages/login/LoginPage';
 import { DashboardPage } from '@/pages/dashboard/DashboardPage';
 import { UsersPage } from '@/pages/users/UsersPage';
+import { ProductsPage } from '@/pages/products/ProductsPage'; 
 import './App.scss';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/" element={<AdminLayout />}>
                     <Route index element={<DashboardPage />} />
                     <Route path="users" element={<UsersPage />} />
+                    <Route path="products" element={<ProductsPage />} />
                 </Route>
 
                 {/* Автоматический редирект для любых несуществующих страниц */}
