@@ -24,10 +24,12 @@ export const LoginPage = () => {
         <div className={styles.loginPageContainer}>
             <div className={styles.loginCard}>
                 <h2>Вход</h2>
-                
+
                 {rtkError && (
                     <div className={styles.errorMessage}>
-                        {rtkError?.data?.message || "Неверный логин или пароль"}
+                        {rtkError?.status === 429 
+                            ? "Слишком много неудачных попыток. Доступ заблокирован на 5 минут."
+                            : (rtkError?.data?.message || "Неверный логин или пароль")}
                     </div>
                 )}
 
